@@ -41,7 +41,7 @@ jobs:
         timeout-minutes: 30
         with:
           install: false
-          record: true
+          record: false
           browser: chrome
           config: pageLoadTimeout=30000,defaultCommandTimeout=30000
         env:
