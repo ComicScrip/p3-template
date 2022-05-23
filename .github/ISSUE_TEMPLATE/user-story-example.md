@@ -1,6 +1,6 @@
 ---
 name: User Story Example
-about: Décris une fonctionnalité d'inscription qui peut servir de référence
+about: Décris une fonctionnalité d'inscription qui peut servir de modèle à adpater
 title: ''
 labels: ''
 assignees: ''
