@@ -22,24 +22,24 @@ En tant que que visiteur, je souhaite pouvoir m'inscrire, afin de recevoir des n
 ### Cas d'utilisation 1 : bonnes infos
 
 - Se rendre sur la page "inscription" accessible depuis l'URL `/signup`
-- [ ] On voit bien un formulaire coresspondant à la maquette
+- [ ] On voit bien un formulaire correspondant à la maquette
 - Remplir le formulaire avec (email: dave.lopper@gmail.com, mot de passe: 67TRCXXs6$tt7)
 - Réaliser le captcha et envoyer le formulaire
 - [ ] Un message de succès apparait
 - [ ] Je reçois un mail avec un lien sur l'adresse que je viens d'entrer
 - Je clic sur "Valider mon email" à partir du message reçu dans ma boite
-- [ ] J'atteris sur une page qui me confirme que mon email a bien été validé. Elle est conforme à la maquette.
+- [ ] J'atterris sur une page qui me confirme que mon email a bien été validé. Elle est conforme à la maquette.
 
 ### Cas d'utilisation 2 : email existant
 
 - Faire une première inscription réussie et noter l'email utilisé
-- Envoyer le formulaire avec des informations valides mais en reprennant l'email précédent.
+- Envoyer le formulaire avec des informations valides mais en reprenant l'email précédent.
 - [ ] Le site avertit que l'email n'est plus disponible.
 
 ### Cas d'utilisation 3 : infos invalides
 
 - Se rendre sur la page "inscription" accessible depuis l'URL `/signup`
-- Tenter d'envoyer le formulaire avec des valeurs non valides (email vide ou au mauvais format, mot de passe vide ou avec moins de 8 caractères, capatcha non-réalisé, ...)
+- Tenter d'envoyer le formulaire avec des valeurs non valides (email vide ou au mauvais format, mot de passe vide ou avec moins de 8 caractères, captcha non-réalisé, ...)
 - [ ] Des messages d'erreurs en dessous des différents champs doivent décrire ce qui ne va pas
 - [ ] Le formulaire ne doit pas s'envoyer tant qu'il y a des erreurs de saisie
 
