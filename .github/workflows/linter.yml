@@ -3,7 +3,7 @@ on: [pull_request]
 
 jobs:
   run-linters:
-    name: Run linters
+    name: run linters
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +19,4 @@ jobs:
           version: 6.0.2
           run_install: true
       - name: Run linters
-        uses: wearerequired/lint-action@v2
-        with:
-          eslint: true
-          prettier: true
+        run: 'pnpm run lint'
