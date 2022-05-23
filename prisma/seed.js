@@ -1,8 +1,8 @@
-const db = require('../db');
+const db = require("../db");
 
 async function seed() {
   await db.thing.deleteMany();
-  await db.thing.create({ data: { name: 'something' } });
+  await db.thing.create({ data: { name: "something" } });
 }
 
 seed();
