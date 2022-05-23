@@ -7,12 +7,12 @@
 // please read our getting started guide:
 // https://on.cypress.io/introduction-to-cypress
 
-describe('homepage', () => {
+describe("homepage", () => {
   beforeEach(() => {
-    cy.visit('/');
+    cy.visit("/");
   });
 
-  it('displays a title', () => {
-    cy.get('h1').should('not.be.empty');
+  it("displays a title", () => {
+    cy.get("h1").should("not.be.empty");
   });
 });

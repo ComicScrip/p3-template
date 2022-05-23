@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "format": "prettier --write .",
     "migrateDB": "npx prisma migrate dev",
     "resetDB": "npx prisma migrate reset",
     "generate-db-client": "npx prisma generate",
@@ -16,7 +17,8 @@
     "pre-start": "NODE_ENV=production npm-run-all migrate:deploy generate-db-client build ",
     "serve:lhci": "npm start",
     "test:gui": "cypress open",
-    "test": "cypress run"
+    "test": "cypress run",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@prisma/client": "3.14.0",
@@ -26,11 +28,24 @@
     "react-dom": "18.1.0"
   },
   "devDependencies": {
+    "cypress": "^9.6.1",
     "eslint": "8.16.0",
     "eslint-config-next": "12.1.6",
-    "cypress": "^9.6.1"
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^12.3.7",
+    "prettier": "2.6.2"
   },
   "prisma": {
     "seed": "node prisma/seed.js"
+  },
+  "lint-staged": {
+    "*.{json,js,ts,jsx,tsx,html,css}": [
+      "prettier --write"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --quiet --cache --fix"
+    ]
   }
 }
