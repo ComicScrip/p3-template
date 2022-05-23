@@ -1,6 +1,6 @@
 ---
-name: User Story
-about: Décris une histoire utilisateur
+name: User Story Empty
+about: Décris une histoire utilisateur sans texte par defaut
 title: ''
 labels: ''
 assignees: ''
