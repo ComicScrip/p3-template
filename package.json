@@ -14,7 +14,7 @@
     "generate-db-client": "npx prisma generate",
     "showDB": "npx prisma studio",
     "migrate:deploy": "npx prisma migrate deploy",
-    "pre-start": "NODE_ENV=production npm-run-all migrate:deploy generate-db-client build ",
+    "pre-start": "NODE_ENV=production npm-run-all migrate:deploy generate-db-client build",
     "serve:lhci": "npm start",
     "test:gui": "cypress open",
     "test": "cypress run",
