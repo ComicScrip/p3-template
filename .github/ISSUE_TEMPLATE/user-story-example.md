@@ -14,8 +14,8 @@ En tant que que visiteur, je souhaite pouvoir m'inscrire, afin de recevoir des n
 
 - [ ] Conformité aux écrans "Inscription" et "Validation email" sur la maquette
 - [ ] L'utilisateur doit finaliser son inscription en validant son email
-- [ ] Un Capcha doit être présent pour éviter les attaques DDoS
-- [ ] La page doit avoir de bonnes performances SEO (>90 sur Lighthouse)
+- [ ] Un système anti-bot doit être présent pour éviter les attaques DDoS
+- [ ] La page doit avoir de très bonnes performances SEO (score lighthouse >90%)
 
 ## Scénarios de test (du point de vue de l'utilisateur)
 
@@ -33,16 +33,15 @@ En tant que que visiteur, je souhaite pouvoir m'inscrire, afin de recevoir des n
 ### Cas d'utilisation 2 : email existant
 
 - Faire une première inscription réussie et noter l'email utilisé
-- Tenter d'envoyer le formulaire l'email pris précédement
-- [ ] On signifie que cet email n'est pas disponible
-- [ ] Le formulaire ne s'envoie pas
+- Envoyer le formulaire avec des informations valides mais en reprennant l'email précédent.
+- [ ] Le site avertit que l'email n'est plus disponible.
 
 ### Cas d'utilisation 3 : infos invalides
 
 - Se rendre sur la page "inscription" accessible depuis l'URL `/signup`
 - Tenter d'envoyer le formulaire avec des valeurs non valides (email vide ou au mauvais format, mot de passe vide ou avec moins de 8 caractères, capatcha non-réalisé, ...)
 - [ ] Des messages d'erreurs en dessous des différents champs doivent décrire ce qui ne va pas
-- [ ] Le formulaire ne doit pas s'envoyer qu'il y a des erreurs de saisie
+- [ ] Le formulaire ne doit pas s'envoyer tant qu'il y a des erreurs de saisie
 
 ## Hors scope
 
