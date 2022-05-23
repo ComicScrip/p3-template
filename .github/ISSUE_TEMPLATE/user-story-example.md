@@ -8,7 +8,7 @@ assignees: ''
 
 # Le besoin
 
-En tant que qu'utilisteur, je souhaite pouvoir m'inscrire, afin de recevoir des news et de pouvoir m'authentifier par la suite.
+En tant que que visiteur, je souhaite pouvoir m'inscrire, afin de recevoir des news et de pouvoir m'authentifier par la suite.
 
 ## Critères et considérations spécifiques
 
