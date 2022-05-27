@@ -2,6 +2,7 @@ import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { signup } from "../apiClient";
 import { passwordStrength } from "check-password-strength";
+import Layout from "../components/Layout";
 
 const notifySignupSuccess = () =>
   toast("Thanks ! You should now be able to connect !", {
@@ -35,7 +36,7 @@ export default function SignupPage() {
   };
 
   return (
-    <div>
+    <Layout pageTitle="Sign up">
       <Toaster />
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">
@@ -91,6 +92,6 @@ export default function SignupPage() {
           Submit
         </button>
       </form>
-    </div>
+    </Layout>
   );
 }
