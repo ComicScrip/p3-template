@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { passwordStrength } from "check-password-strength";
+import Layout from "../components/Layout";
 
 const notifyRegisterSuccess = () => toast("Thanks ! You can now log in !");
 
@@ -31,7 +32,7 @@ export default function SignupPage() {
   };
 
   return (
-    <>
+    <Layout pageTitle="Sign up">
       <Toaster />
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
@@ -87,6 +88,6 @@ export default function SignupPage() {
           Register
         </button>
       </form>
-    </>
+    </Layout>
   );
 }
