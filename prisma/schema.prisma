@@ -14,3 +14,14 @@ model Thing {
   id   Int    @id @default(autoincrement())
   name String
 }
+
+model User {
+  id                    Int     @id @default(autoincrement())
+  name                  String?
+  email                 String? @unique
+  image                 String?
+  hashedPassword        String?
+  role                  String  @default("visitor")
+  active                Boolean @default(true)
+  emailVerificationCode String? @unique
+}
