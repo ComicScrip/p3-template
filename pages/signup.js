@@ -14,6 +14,7 @@ export default function SignupPage() {
   const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
+    setError("");
     e.preventDefault();
     if (password !== passwordConfirmation)
       return setError("passwords do not match");
