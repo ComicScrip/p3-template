@@ -1,6 +1,11 @@
 /// <reference types="cypress" />
 
-const { deleteAllUsers, createUser } = require("../../models/user");
+const {
+  deleteAllUsers,
+  createUser,
+  findByEmail,
+  deleteUserByEmail,
+} = require("../../models/user");
 
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
@@ -22,6 +27,8 @@ const { deleteAllUsers, createUser } = require("../../models/user");
 module.exports = (on, config) => {
   on("task", {
     cleanDB: () => deleteAllUsers(),
-    createUser: (data) => createUser(data),
+    createUser,
+    findUserByEmail: findByEmail,
+    deleteUserByEmail,
   });
 };
