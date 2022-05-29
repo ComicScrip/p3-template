@@ -3,7 +3,7 @@
 const {
   deleteAllUsers,
   createUser,
-  findByEmail,
+  findUserByEmail,
   deleteUserByEmail,
 } = require("../../models/user");
 
@@ -28,7 +28,7 @@ module.exports = (on, config) => {
   on("task", {
     cleanDB: () => deleteAllUsers(),
     createUser,
-    findUserByEmail: findByEmail,
+    findUserByEmail,
     deleteUserByEmail,
   });
 };

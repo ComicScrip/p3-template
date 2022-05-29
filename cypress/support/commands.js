@@ -35,20 +35,12 @@ Cypress.Commands.add(
       name: "userInDb",
       setup: () => {
         cy.task("deleteUserByEmail", email);
-        cy.task("createUser", {
-          email,
-          password,
-          name,
-        }).then((user) => {
-          return Promise.resolve(user);
-        });
+        cy.task("createUser", { email, password, name });
       },
-      validate: (saved) => {
-        return cy.task("findUserByEmail", saved.email).then((user) => {
-          if (user?.email === email) return Promise.resolve(!!user);
-          else return Promise.resolve(false);
-        });
-      },
+      validate: (saved) =>
+        cy
+          .task("findUserByEmail", saved.email)
+          .then((user) => Promise.resolve(user?.email === email)),
     });
   }
 );
@@ -79,8 +71,8 @@ Cypress.Commands.add(
             }))
           );
       },
-      validate: (saved) => {
-        return cy
+      validate: (saved) =>
+        cy
           .request({
             url: "/api/profile",
             failOnStatusCode: false,
@@ -88,8 +80,7 @@ Cypress.Commands.add(
               Cookie: `next-auth.session-token=${saved.cookie.value}`,
             },
           })
-          .then(({ body: user }) => user.email === saved.user.email);
-      },
+          .then(({ body: user }) => user.email === saved.user.email),
       recreate: (saved) => {
         cy.setCookie("next-auth.session-token", saved.cookie.value);
       },
@@ -100,15 +91,11 @@ Cypress.Commands.add(
 
 Cypress.Commands.add(
   "setupCurrentUser",
-  ({
-    email = "visitor@website.com",
-    role = "visitor",
-    name = "Visitor",
-  } = {}) => {
+  ({ email = "visitor@website.com", name = "Visitor" } = {}) => {
     cy.dataSession({
       name: "currentUser",
       setup: () => {
-        cy.signup({ name, role, email });
+        cy.signup({ name, email });
         cy.login({ email });
         cy.get("@userSession").then((session) => session.user);
       },

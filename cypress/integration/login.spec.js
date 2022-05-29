@@ -16,7 +16,6 @@ describe("login", () => {
     });
 
     it("can login with correct credentials", function () {
-      cy.get('[data-cy="currentUserMenu"]').should("not.exist");
       cy.get('[data-cy="email"]').type(this.userInDb.email);
       cy.get('[data-cy="password"]').type("verysecure");
       cy.get('[data-cy="loginForm"]').submit();
@@ -27,7 +26,6 @@ describe("login", () => {
       cy.get('[data-cy="email"]').type("adin@website.com");
       cy.get('[data-cy="password"]').type("verysecure");
       cy.get('[data-cy="loginForm"]').submit();
-      cy.get('[data-cy="currentUserMenu"]').should("not.exist");
       cy.contains("Incorrect credentials");
     });
 

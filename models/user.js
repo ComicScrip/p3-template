@@ -41,7 +41,7 @@ module.exports.emailAlreadyExists = (email) => {
   return db.user.findUnique({ where: { email } }).then((user) => !!user);
 };
 
-module.exports.findByEmail = (email) =>
+module.exports.findUserByEmail = (email) =>
   db.user.findUnique({ where: { email } }).catch(() => false);
 
 module.exports.deleteAllUsers = db.user.deleteMany;

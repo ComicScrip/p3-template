@@ -1,9 +1,9 @@
 import { getSession } from "next-auth/react";
-import { findByEmail, getSafeAttributes } from "../../models/user";
+import { findUserByEmail, getSafeAttributes } from "../../models/user";
 
 async function handleGetProfile(req, res) {
   const session = await getSession({ req });
-  req.currentUser = await findByEmail(session?.user?.email);
+  req.currentUser = await findUserByEmail(session?.user?.email);
   if (!req.currentUser) return res.status(401).send("Unauthorized");
 
   return res.send(getSafeAttributes(req.currentUser));
