@@ -11,6 +11,9 @@ const hashingOptions = {
 const hashPassword = (plainPassword) =>
   argon2.hash(plainPassword, hashingOptions);
 
+module.exports.verifyPassword = (plainPassword, hashedPassword) =>
+  argon2.verify(hashedPassword, plainPassword);
+
 module.exports.validateUser = (data, forUpdate = false) =>
   Joi.object({
     email: Joi.string()
@@ -40,6 +43,8 @@ module.exports.createUser = async ({ password, name, email }) => {
 module.exports.emailAlreadyExists = (email) => {
   return db.user.findUnique({ where: { email } }).then((user) => !!user);
 };
+
+module.exports.findByEmail = (email) => db.user.findFirst({ where: { email } });
 
 module.exports.deleteAllUsers = db.user.deleteMany;
 
