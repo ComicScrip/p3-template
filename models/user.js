@@ -41,6 +41,20 @@ module.exports.emailAlreadyExists = (email) => {
   return db.user.findUnique({ where: { email } }).then((user) => !!user);
 };
 
+module.exports.findUserByEmail = (email) =>
+  db.user.findUnique({ where: { email } }).catch(() => false);
+
 module.exports.deleteAllUsers = db.user.deleteMany;
 
+module.exports.deleteUserByEmail = (email) =>
+  db.user.delete({ where: { email } }).catch(() => false);
+
 module.exports.hashPassword = hashPassword;
+
+module.exports.verifyPassword = (hash, plain) =>
+  argon2.verify(hash, plain, hashingOptions);
+
+module.exports.getSafeAttributes = (user) => ({
+  ...user,
+  hashedPassword: undefined,
+});
