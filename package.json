@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "cypress": "^9.6.1",
+    "cypress-data-session": "^2.0.0",
     "eslint": "8.16.0",
     "eslint-config-next": "12.1.6",
     "eslint-plugin-cypress": "^2.12.1",

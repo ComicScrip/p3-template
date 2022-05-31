@@ -44,8 +44,17 @@ module.exports.emailAlreadyExists = (email) => {
   return db.user.findUnique({ where: { email } }).then((user) => !!user);
 };
 
-module.exports.findByEmail = (email) => db.user.findFirst({ where: { email } });
+module.exports.findByEmail = (email) =>
+  db.user.findFirst({ where: { email } }).catch(() => false);
 
 module.exports.deleteAllUsers = db.user.deleteMany;
+
+module.exports.deleteUserByEmail = (email) =>
+  db.user.delete({ where: { email } }).catch(() => false);
+
+module.exports.getSafeAttributes = (user) => ({
+  ...user,
+  hashedPassword: undefined,
+});
 
 module.exports.hashPassword = hashPassword;

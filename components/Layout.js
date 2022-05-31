@@ -8,7 +8,9 @@ export default function Layout({ children, pageTitle }) {
         <title>{pageTitle}</title>
         <meta name="description" content="my awesome website" />
       </Head>
-      <button onClick={() => signIn()}>Log in</button>
+      <button data-cy="loginBtn" onClick={() => signIn()}>
+        Log in
+      </button>
       {children}
     </>
   );
